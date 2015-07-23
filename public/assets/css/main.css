@@ -1,0 +1,42 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+ui-view {
+	padding: 10px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.ron-pic {
+	width: 70px;
+	height: 50px;
+	text-align: center;
+}
+
+.navbar {
+	height: 80px;
+}
+
+.navbar-brand.navbar-title {
+	padding-top: 30px;
+}
+
+.nav.navbar-nav.navbar-right li {
+	padding-top: 15px;
+}
+
+	.link-score {
+		padding-right: 20px;
+	}
+
+.main-container {
+	margin: 0 auto;
+	width: 500px;
+	height: 400px;
+	background: url(http://lorempixel.com/500/400/animals/);
+	text-align: center;
+}

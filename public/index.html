@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta name="name" content="content" charset="UTF-8">
+		<title>Ron Swanson Typing Game</title>
+		<link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/main.css">
+	</head>
+	<body>
+
+	<!--insert navbar -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" ng-controller="WelcomeCtrl">
+		<div class="container-fluid">
+	    <div class="navbar-header">
+	    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	          <span class="sr-only">Toggle navigation</span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" ui-sref="welcome">
+	        <img class="ron-pic" src="assets/imgs/Ron-Swanson-AP.png"/></a>
+	         <span class="navbar-brand navbar-title" ui-sref="welcome">
+	        Ron Swanson Says:</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	    <ul class="nav navbar-nav navbar-right">
+	        <li><a ui-sref="game">Game</a></li>
+	        <li class="link-score"><a ui-sref="scores">Scores</a></li>
+	    </ul>
+	   </div>
+	</nav>
+			<!-- end navbar -->
+
+	<ui-view></ui-view>
+
+	<!-- ========= VENDOR SCRIPTS ========= -->
+		<script src="assets/libs/angular/angular.js"></script>
+		<script src="assets/libs/ui-router/release/angular-ui-router.js"></script>
+		<script src="assets/libs/jquery/dist/jquery.js"></script>
+		<script src="assets/libs/bootstrap/dist/js/bootstrap.js"></script>
+<!-- 		<script src="assets/libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script src="assets/libs/angular-bootstrap/ui-bootstrap.js"></script> -->
+
+	<!-- ========= APP SCRIPTS ========= -->
+			<script src="app/app.module.js"></script>
+
+		<!-- Core Module -->
+			<script src="app/core/core.module.js"></script>
+			<script src="app/core/config.js"></script>
+			<script src="app/core/config.route.js"></script>
+			<script src="app/core/constants.js"></script>
+
+		<!--Welcome Page-->
+			<script src="app/welcome/welcome.module.js"></script>
+			<script src="app/welcome/config.route.js"></script>
+			<script src="app/welcome/WelcomeCtrl.js"></script>
+
+		<!-- Game -->
+			<script src="app/game/game.module.js"></script>
+			<script src="app/game/config.route.js"></script>
+			<script src="app/game/GameCtrl.js"></script>
+			<script src="app/game/GameService.js"></script>
+
+		<!-- Scores -->
+			<script src="app/scores/scores.module.js"></script>
+			<script src="app/scores/config.route.js"></script>
+			<script src="app/scores/ScoresCtrl.js"></script>
+
+	</body>
+</html>
