@@ -14,9 +14,12 @@
             controller: 'GameCtrl',
             controllerAs: 'ga',
             resolve: {
+                firstQuote: function(GameService){
                 //authenticate:
+                return GameService.getQuote();
+                }
             }
-        })
+        });
     }
 
 })();

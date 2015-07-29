@@ -68,8 +68,6 @@ ui-view {
 
 .quote-area {
 	width: 500px;
-	z-index: 1000;
-	height: 100px;
 	font-size: 14px;
 }
 

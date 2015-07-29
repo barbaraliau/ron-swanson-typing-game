@@ -3,9 +3,9 @@
 		.module('app.game')
 		.controller('GameCtrl', GameCtrl);
 
-		GameCtrl.$inject = [ '$rootScope', '$scope', 'GameService']
+		GameCtrl.$inject = [ '$rootScope', '$scope', 'GameService', '$state', 'firstQuote']
 
-		function GameCtrl($rootScope, $scope, GameService){
+		function GameCtrl($rootScope, $scope, GameService, $state, firstQuote){
 			var scope = $rootScope;
 			var ga = this;
 			var counter = 0;
@@ -14,17 +14,17 @@
 			ga.change = [];
 			ga.compareQuote = compareQuote;
 			ga.getSwanson = getSwanson;
-			ga.swansonQuote;
+			ga.swansonQuote = firstQuote;
 
 			// getSwanson();
 
-			$scope.$watch(function(){
-				return $scope.$parent.start
-			}, function(){
-				if($scope.$parent.start){
-					getSwanson();
-				}
-			})
+			// $scope.$watch(function(){
+			// 	return $scope.$parent.start
+			// }, function(){
+			// 	if($scope.$parent.start){
+			// 		getSwanson();
+			// 	}
+			// })
 
 			function getSwanson(){
 				GameService.getQuote().then(function(quote){
@@ -38,12 +38,15 @@
 				for (var i = 0; i < 120; i++) {
 					divArray.push({id: i});
 				}
-					console.log(divArray);
+					//console.log(divArray);
 					return divArray;
 			};
 
 			function compareQuote(){
-				if((ga.textInput.length - 1) === counter) {
+				var textIndex = ga.textInput.length - 1;
+				var quoteIndex = ga.swansonQuote.length - 1;
+
+				if(textIndex === counter) {
 					if(ga.swansonQuote.indexOf(ga.textInput) === 0) {
 						ga.change[i] = true;
 						counter++;
@@ -51,12 +54,12 @@
 						console.log('counter', counter)
 					}
 				}
-				if(ga.textInput.length - 1 === ga.swansonQuote.length - 1) {
+				if(textIndex === quoteIndex) {
 					GameService.getQuote().then(function(quote){
 						ga.swansonQuote = quote;
-						ga.textInput = "";
 						counter = 0;
-					})
+					});
+					ga.textInput = '';
 				}
 				if(i === 120) {
 					alert("Finished!")
