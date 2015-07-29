@@ -6,9 +6,11 @@ html, body {
 }
 
 ui-view {
-	padding: 10px;
 	text-align: center;
 	margin: 0 auto;
+	padding: 0;
+	height: 100%;
+	width: 100%;
 }
 
 .ron-pic {
@@ -38,5 +40,45 @@ ui-view {
 	width: 500px;
 	height: 400px;
 	background: url(http://lorempixel.com/500/400/animals/);
+	text-align: center;
+	box-sizing: border-box;
+}
+
+
+.little-box {
+	width: 41.67px;
+	height: 40px;
+	float: left;
+	background: url(../imgs/swanson-meat.jpg);
+	background-size: 40px;
+	box-sizing: border-box;
+	border-collapse: collapse;
+}
+
+.disappear-box {
+	display: none;
+}
+
+.typing-area {
+	width: 500px;
+	margin: 20px auto;
+	background: rgb(212,212,212);
+	box-sizing: border-box;
+}
+
+.quote-area {
+	width: 500px;
+	z-index: 1000;
+	height: 100px;
+	font-size: 14px;
+}
+
+.text-input {
+	margin-top: 20px;
+	width: 500px;
+}
+
+.reset {
+	width: 150px;
 	text-align: center;
 }
