@@ -5,6 +5,5 @@
 
 // 	angular
 // 		.module('app.core')
-// 		.constant()
 
 // })();

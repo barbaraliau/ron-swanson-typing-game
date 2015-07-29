@@ -8,14 +8,15 @@
 		function GameCtrl($rootScope, $scope, GameService){
 			var scope = $rootScope;
 			var ga = this;
-			ga.test = 'GAME TEST';
+			var counter = 0;
+			var i = 0;
 			ga.divArray = makeDivArray();
 			ga.change = [];
 			ga.compareQuote = compareQuote;
-			ga.swansonQuote;
 			ga.getSwanson = getSwanson;
+			ga.swansonQuote;
 
-			getSwanson();
+			// getSwanson();
 
 			$scope.$watch(function(){
 				return $scope.$parent.start
@@ -24,6 +25,13 @@
 					getSwanson();
 				}
 			})
+
+			function getSwanson(){
+				GameService.getQuote().then(function(quote){
+					console.log(quote);
+					ga.swansonQuote = quote;
+				})
+			};
 
 			function makeDivArray(){
 				var divArray = [];
@@ -34,19 +42,17 @@
 					return divArray;
 			};
 
-			var counter = 0;
-			var i = 0;
-
 			function compareQuote(){
 				if((ga.textInput.length - 1) === counter) {
 					if(ga.swansonQuote.indexOf(ga.textInput) === 0) {
 						ga.change[i] = true;
 						counter++;
 						i++;
+						console.log('counter', counter)
 					}
 				}
 				if(ga.textInput.length - 1 === ga.swansonQuote.length - 1) {
-					gameService.getQuote().then(function(quote){
+					GameService.getQuote().then(function(quote){
 						ga.swansonQuote = quote;
 						ga.textInput = "";
 						counter = 0;
@@ -58,11 +64,7 @@
 			};
 
 
-			function getSwanson(){
-				GameService.getQuote().then(function(quote){
-					ga.swansonQuote = quote;
-				})
-			};
+
 
 		};//end ctrl
 

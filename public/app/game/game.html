@@ -1,13 +1,11 @@
 
 <div class="main-container" ng-model="ga.divArray">
-	<div class="little-box" ng-repeat="box in ga.divArray track by $id(box)" ng-hide="change[$index]">
+	<div class="little-box" ng-repeat="box in ga.divArray track by $id(box)" ng-hide="ga.change[$index]">
 	</div>
 </div>
 
 <div class="typing-area">
  	<div class="quote-area">{{ga.swansonQuote}}</div>
-<!--  	<input type="text" class="text-input" placeholder="Type here" ng-model="textInput" ng-change="gameCtrl.compareText()"></div> -->
 	<input type="text" class="text-input" ng-model="ga.textInput" ng-trim="false" placeholder="Type here" ng-change="ga.compareQuote()"/>
-<!--  	<button class="reset" ng-click="divCtrl.testButton()">New Game</button>
- --> 	<button class="reset" ng-click="ga.getSwanson()">Test Quote</button>
+ 	<button class="reset" ng-click="ga.getSwanson()">Test Quote</button>
 </div>
